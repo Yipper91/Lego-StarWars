@@ -10,15 +10,25 @@ const btnYoda = document.querySelector(".yoda");
 const btnRadio = document.querySelector(".radio");
 
 // === AUDIO ===
-const sfxObiwan = new Audio("/assets/audio/obiwan.mp3");
-const sfxChewy = new Audio("/assets/audio/chewy.mp3");
-const sfxHan = new Audio("/assets/audio/han-alt.mp3");
-const sfxLeia = new Audio("/assets/audio/leia.mp3");
-const sfxC3PO = new Audio("/assets/audio/c3po-alt.mp3");
-const sfxR2D2 = new Audio("/assets/audio/r2d2.mp3");
-const sfxLuke = new Audio("/assets/audio/luke.mp3");
-const sfxYoda = new Audio("/assets/audio/yoda.mp3");
-const sfxRadio = new Audio("/assets/audio/radio.mp3");
+const loadObiwan = ("../audio/obiwan.mp3");
+const loadChewy = ("../audio/chewy.mp3");
+const loadHan = ("../audio/han-alt.mp3");
+const loadLeia = ("../audio/leia.mp3");
+const loadC3PO = ("../audio/c3po-alt.mp3");
+const loadR2D2 = ("../audio/r2d2.mp3");
+const loadLuke = ("../audio/luke.mp3");
+const loadYoda = ("../audio/yoda.mp3");
+const loadRadio = ("./audio/radio.mp3");
+
+const sfxObiwan = new Audio(loadObiwan);
+const sfxChewy = new Audio(loadChewy);
+const sfxHan = new Audio(loadHan);
+const sfxLeia = new Audio(loadLeia);
+const sfxC3PO = new Audio(loadC3PO);
+const sfxR2D2 = new Audio(loadR2D2);
+const sfxLuke = new Audio(loadLuke);
+const sfxYoda = new Audio(loadYoda);
+const sfxRadio = new Audio(loadRadio);
 
 // === PLAY FUNCTIONS ===
 btnObiwan.addEventListener("click", function() {

@@ -5,11 +5,11 @@ body {
 /* === TYPOGRAPHY === */
 @font-face {
     font-family: "StarJedi";
-    src: url(/assets/font/Starjedi.ttf) format("truetype");
+    src: url(../font/Starjedi.ttf) format("truetype");
 }
 @font-face {
     font-family: "StarMaster";
-    src: url(/assets/font/Starlogo.ttf) format("truetype");
+    src: url(../font/Starlogo.ttf) format("truetype");
     font-weight: 100;
 }
 
