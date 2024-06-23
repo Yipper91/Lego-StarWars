@@ -9,26 +9,26 @@ const btnLuke = document.querySelector(".luke");
 const btnYoda = document.querySelector(".yoda");
 const btnRadio = document.querySelector(".radio");
 
-// === AUDIO ===
-const loadObiwan = ("../audio/obiwan.mp3");
-const loadChewy = ("../audio/chewy.mp3");
-const loadHan = ("../audio/han-alt.mp3");
-const loadLeia = ("../audio/leia.mp3");
-const loadC3PO = ("../audio/c3po-alt.mp3");
-const loadR2D2 = ("../audio/r2d2.mp3");
-const loadLuke = ("../audio/luke.mp3");
-const loadYoda = ("../audio/yoda.mp3");
-const loadRadio = ("./audio/radio.mp3");
+const onCantina = document.getElementById("onCantina");
+const onWaves = document.getElementById("onWaves");
+const onEseerin = document.getElementById("onEseerin");
+const offCantina = document.getElementById("offCantina");
+const offWaves = document.getElementById("offWaves");
+const offEseerin = document.getElementById("offEseerin");
 
-const sfxObiwan = new Audio(loadObiwan);
-const sfxChewy = new Audio(loadChewy);
-const sfxHan = new Audio(loadHan);
-const sfxLeia = new Audio(loadLeia);
-const sfxC3PO = new Audio(loadC3PO);
-const sfxR2D2 = new Audio(loadR2D2);
-const sfxLuke = new Audio(loadLuke);
-const sfxYoda = new Audio(loadYoda);
-const sfxRadio = new Audio(loadRadio);
+// === AUDIO ===
+const sfxObiwan = new Audio("../assets/audio/obiwan.mp3");
+const sfxChewy = new Audio("../assets/audio/chewy.mp3");
+const sfxHan = new Audio("../assets/audio/han-alt.mp3");
+const sfxLeia = new Audio("../assets/audio/leia.mp3");
+const sfxC3PO = new Audio("../assets/audio/c3po-alt.mp3");
+const sfxR2D2 = new Audio("../assets/audio/r2d2.mp3");
+const sfxLuke = new Audio("../assets/audio/luke.mp3");
+const sfxYoda = new Audio("../assets/audio/yoda.mp3");
+
+const songCantina = new Audio("../assets/audio/cantina.mp3");
+const songWaves = new Audio("../assets/audio/waves.mp3");
+const songEseerin = new Audio("../assets/audio/eseerin.mp3");
 
 // === PLAY FUNCTIONS ===
 btnObiwan.addEventListener("click", function() {
@@ -65,22 +65,83 @@ btnYoda.addEventListener("click", function() {
 });
 
 // === RADIO ===
-sfxRadio.loop = true;
-btnRadio.addEventListener("click", () => {
-    playMusic();
-    playAnimation();
+songCantina.loop = true;
+songWaves.loop = true;
+songEseerin.loop = true;
+onCantina.addEventListener("click", () => {
+    playCantina();
 })
-function playMusic() {
-    if (sfxRadio.paused) {
-        sfxRadio.play();
-    } else {
-        sfxRadio.pause();
-    }
-}
-function playAnimation() {
-    if (btnRadio.style.animationPlayState === "paused" || btnRadio.style.animationPlayState === "") {
+offCantina.addEventListener("click", () => {
+    playCantina();
+})
+
+onWaves.addEventListener("click", () => {
+    playWaves();
+})
+offWaves.addEventListener("click", () => {
+    playWaves();
+})
+
+onEseerin.addEventListener("click", () => {
+    playEseerin();
+})
+offEseerin.addEventListener("click", () => {
+    playEseerin();
+})
+function playCantina() {
+    if (songCantina.paused) {
+        songCantina.play();
+        songWaves.pause();
+        songEseerin.pause();
+        onCantina.style.visibility = "visible";
+        onWaves.style.visibility = "hidden";
+        onEseerin.style.visibility = "hidden";
+        offCantina.style.visibility = "hidden";
+        offWaves.style.visibility = "visible";
+        offEseerin.style.visibility = "visible";
         btnRadio.style.animationPlayState = "running";
     } else {
+        songCantina.pause();
+        onCantina.style.visibility = "hidden";
+        offCantina.style.visibility = "visible";
+        btnRadio.style.animationPlayState = "paused";
+    }
+}
+function playWaves() {
+    if (songWaves.paused) {
+        songWaves.play();
+        songCantina.pause();
+        songEseerin.pause();
+        onCantina.style.visibility = "hidden";
+        onWaves.style.visibility = "visible";
+        onEseerin.style.visibility = "hidden";
+        offCantina.style.visibility = "visible";
+        offWaves.style.visibility = "hidden";
+        offEseerin.style.visibility = "visible";
+        btnRadio.style.animationPlayState = "running";
+    } else {
+        songWaves.pause();
+        onWaves.style.visibility = "hidden";
+        offWaves.style.visibility = "visible";
+        btnRadio.style.animationPlayState = "paused";
+    }
+}
+function playEseerin() {
+    if (songEseerin.paused) {
+        songEseerin.play();
+        songCantina.pause();
+        songWaves.pause();
+        onCantina.style.visibility = "hidden";
+        onWaves.style.visibility = "hidden";
+        onEseerin.style.visibility = "visible";
+        offCantina.style.visibility = "visible";
+        offWaves.style.visibility = "visible";
+        offEseerin.style.visibility = "hidden";
+        btnRadio.style.animationPlayState = "running";
+    } else {
+        songEseerin.pause();
+        onEseerin.style.visibility = "hidden";
+        offEseerin.style.visibility = "visible";
         btnRadio.style.animationPlayState = "paused";
     }
 }
